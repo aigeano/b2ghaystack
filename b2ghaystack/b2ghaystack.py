@@ -127,9 +127,15 @@ def get_builds(branch, device, good_rev, bad_rev, eng=False, max_builds=10.,
             builds[-1]['revision'][:12])
     return builds
 
+'''
+To Give password argument from a file : 
+create a file '@pswd.txt' anywhere and store your password as 
+-p
+your_password
+'''
 
 def cli(args=sys.argv[1:]):
-    parser = argparse.ArgumentParser(
+    parser = argparse.ArgumentParser(fromfile_prefix_chars = '@'
         description='Trigger Jenkins jobs for all builds between revisions.')
     parser.add_argument(
         '-v', '--verbose',
@@ -192,6 +198,12 @@ def cli(args=sys.argv[1:]):
     parser.add_argument(
         'bad_rev',
         help='first known bad revision')
+
+    if os.path.exists('@pswd.txt'):
+        file_path = os.path.abspath('@pswd.txt')
+        args = args + [file_path]
+    else:
+	sys.exit('Cannaot fetch file "@pswd.txt" containing password for access to builds')
     args = parser.parse_args()
 
     log_level = logging.DEBUG if args.verbose else logging.WARN
