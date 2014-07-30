@@ -131,12 +131,12 @@ def get_builds(branch, device, good_rev, bad_rev, eng=False, max_builds=10.,
 
 def cli(args=sys.argv[1:]):
     parser = argparse.ArgumentParser(
-        fromfile_prefix_chars='@'
-        description='Trigger Jenkins jobs for all builds between revisions.
-        Optionally, the arguments can be provided through a configuration
-        file b2ghaystack.conf ')
+        fromfile_prefix_chars='@',
+        description='Trigger Jenkins jobs for all builds between revisions.'
+        'Optionally, the arguments can be provided through a configuration'
+        'file b2ghaystack.conf')
     if os.path.exists('b2ghaystack.conf'):
-        args = args + ['b2ghaystack.conf']
+        args = ['b2ghaystack.conf'] + args
     parser.add_argument(
         '-v', '--verbose',
         action='store_true',
@@ -199,7 +199,7 @@ def cli(args=sys.argv[1:]):
         'bad_rev',
         help='first known bad revision')
 
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
     log_level = logging.DEBUG if args.verbose else logging.WARN
     logging.basicConfig(level=log_level)
