@@ -55,14 +55,18 @@ optional arguments:
   -j JENKINS_URL      url of jenkins instance (default: http://localhost:8080)
   -e EMAIL            email address to send result notifications
 
-The arguments can optionally be provided by manually putting them in a configuration file- 
-'b2ghaystack.config' in the specified syntax.
+```
+## Alternative to command line argument passing 
 
-Sample b2ghaystack.conf:
+The arguments can optionally be provided by manually putting them in a configuration file- 
+'@b2ghaystack.conf' in the specified syntax.
+
+```
+Sample @b2ghaystack.conf:
 
 -u
 USERNAME
 -p
 PASSWORD
 
-  ```
+```
