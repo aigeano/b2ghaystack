@@ -56,17 +56,12 @@ optional arguments:
   -e EMAIL            email address to send result notifications
 
 ```
-## Alternative to command line argument passing 
-
 The arguments can optionally be provided by manually putting them in a configuration file- 
-'@b2ghaystack.conf' in the specified syntax.
-
+'b2ghaystack.conf' in the specified syntax.
+Sample b2ghaystack.conf:
 ```
-Sample @b2ghaystack.conf:
-
 -u
 USERNAME
 -p
 PASSWORD
-
 ```

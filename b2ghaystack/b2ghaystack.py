@@ -134,8 +134,8 @@ def cli(args=sys.argv[1:]):
         fromfile_prefix_chars='@',
         description='Trigger Jenkins jobs for all builds between revisions.'
         'Optionally, the arguments can be provided through a configuration '
-        'file @b2ghaystack.conf')
-    if os.path.exists('@b2ghaystack.conf'):
+        'file b2ghaystack.conf')
+    if os.path.exists('b2ghaystack.conf'):
         args = ['@b2ghaystack.conf'] + args
     parser.add_argument(
         '-v', '--verbose',
